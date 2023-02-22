@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 mongoose.set("strictQuery", false);
-const MONGODB_URI = `mongodb+srv://kevinCluster:kevinCluster@clusters.secnb7z.mongodb.net/?retryWrites=true&w=majority`;
+
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+
+const MONGODB_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@clusters.secnb7z.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose
   .connect(MONGODB_URI, {
